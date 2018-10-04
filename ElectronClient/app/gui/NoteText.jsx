@@ -171,18 +171,18 @@ class NoteTextComponent extends React.Component {
 
 		const updateSelectionRange = () => {
 
-		// ugly, I know.....
-		if (!this.rawEditor()) {
-		  this.selectionRange_ = null;
-		}
-		else {
-			const ranges = this.rawEditor().getSelection().getAllRanges();
-			if (!ranges || !ranges.length || !this.state.note) {
-				this.selectionRange_ = null;
-			} else {
-				this.selectionRange_ = ranges[0];
+			// ugly, I know.....
+			if (!this.rawEditor()) {
+			  this.selectionRange_ = null;
 			}
-
+			else {
+				const ranges = this.rawEditor().getSelection().getAllRanges();
+				if (!ranges || !ranges.length || !this.state.note) {
+					this.selectionRange_ = null;
+				} else {
+					this.selectionRange_ = ranges[0];
+				}
+			}
 		}
 
 		this.aceEditor_selectionChange = (selection) => {
