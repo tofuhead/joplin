@@ -171,12 +171,18 @@ class NoteTextComponent extends React.Component {
 
 		const updateSelectionRange = () => {
 
+		// ugly, I know.....
+		if (!this.rawEditor()) {
+		  this.selectionRange_ = null;
+		}
+		else {
 			const ranges = this.rawEditor().getSelection().getAllRanges();
 			if (!ranges || !ranges.length || !this.state.note) {
 				this.selectionRange_ = null;
 			} else {
 				this.selectionRange_ = ranges[0];
 			}
+
 		}
 
 		this.aceEditor_selectionChange = (selection) => {
@@ -197,7 +203,7 @@ class NoteTextComponent extends React.Component {
 
 	// Note:
 	// - What's called "cursor position" is expressed as { row: x, column: y } and is how Ace Editor get/set the cursor position
-	// - A "range" defines a selection with a start and end cusor position, expressed as { start: <CursorPos>, end: <CursorPos> } 
+	// - A "range" defines a selection with a start and end cusor position, expressed as { start: <CursorPos>, end: <CursorPos> }
 	// - A "text offset" below is the absolute position of the cursor in the string, as would be used in the indexOf() function.
 	// The functions below are used to convert between the different types.
 	rangeToTextOffsets(range, body) {
@@ -245,7 +251,7 @@ class NoteTextComponent extends React.Component {
 			}
 
 			row++;
-			currentOffset += line.length + 1;	
+			currentOffset += line.length + 1;
 		}
 	}
 
