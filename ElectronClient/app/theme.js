@@ -129,7 +129,7 @@ function themeStyle(theme) {
 
 	output.sideBarBackgroundColor = "#19191a";
 	//output.noteListBackgroundColor = "#181818";
-  output.noteListBackgroundColor = "#121212";
+	output.noteListBackgroundColor = "#121212";
 	output.editorBackgroundColor = "#0f0f0f";
 	output.headerBackgroundColor = "#555555";
 

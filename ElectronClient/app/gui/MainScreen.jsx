@@ -300,7 +300,7 @@ class MainScreenComponent extends React.Component {
 			position: 'relative',
 			zIndex: '10',
 			backgroundColor: theme.sideBarBackgroundColor
-    };
+		};
 
 		if (isSidebarVisible === false) {
 			this.styles_.sideBar.width = 0;
