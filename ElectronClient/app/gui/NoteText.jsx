@@ -1322,6 +1322,7 @@ class NoteTextComponent extends React.Component {
 			display: 'flex',
 			flexDirection: 'row',
 			alignItems: 'center',
+			backgroundColor: 'red'
 		};
 
 		const titleEditorStyle = {
@@ -1332,7 +1333,8 @@ class NoteTextComponent extends React.Component {
 			paddingBottom: 5,
 			paddingLeft: 8,
 			paddingRight: 8,
-			marginRight: rootStyle.paddingLeft,
+			marginRight: rootStyle.paddingLeft
+
 		};
 
 		const toolbarStyle = {
@@ -1347,7 +1349,8 @@ class NoteTextComponent extends React.Component {
 			overflow: 'hidden',
 			float: 'left',
 			verticalAlign: 'top',
-			boxSizing: 'border-box',
+			boxSizing: 'border-box'
+
 		};
 
 		const paddingTop = 14;
@@ -1361,6 +1364,7 @@ class NoteTextComponent extends React.Component {
 			paddingTop: paddingTop + 'px',
 			lineHeight: theme.textAreaLineHeight + 'px',
 			fontSize: theme.fontSize + 'px',
+			backgroundColor: theme.editorBackgroundColor,
 		};
 
 		if (visiblePanes.indexOf('viewer') < 0) {

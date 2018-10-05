@@ -158,7 +158,7 @@ class MainScreenComponent extends React.Component {
 				},
 			});
 		} else if (command.name === 'renameTag') {
-			const tag = await Tag.load(command.id);			
+			const tag = await Tag.load(command.id);
 			if(!tag) return;
 
 			this.setState({
@@ -173,12 +173,12 @@ class MainScreenComponent extends React.Component {
 							} catch (error) {
 								bridge().showErrorMessageBox(error.message);
 							}
-						}						
+						}
 						this.setState({promptOptions: null });
 					}
 				}
 			})
-		
+
 		} else if (command.name === 'search') {
 
 			if (!this.searchId_) this.searchId_ = uuid.create();
@@ -277,7 +277,8 @@ class MainScreenComponent extends React.Component {
 
 		this.styles_.header = {
 			width: width,
-		};
+			backgroundColor: theme.headerBackgroundColor
+			};
 
 		this.styles_.messageBox = {
 			width: width,
@@ -295,6 +296,10 @@ class MainScreenComponent extends React.Component {
 			height: rowHeight,
 			display: 'inline-block',
 			verticalAlign: 'top',
+			boxShadow: '4px 8px 4px rgba(19, 19, 19, 0.38)',
+			position: 'relative',
+			zIndex: '10',
+			backgroundColor: theme.sideBarBackgroundColor
     };
 
 		if (isSidebarVisible === false) {
@@ -307,6 +312,7 @@ class MainScreenComponent extends React.Component {
 			height: rowHeight,
 			display: 'inline-block',
 			verticalAlign: 'top',
+			backgroundColor: theme.noteListBackgroundColor
 		};
 
 		this.styles_.noteText = {
@@ -314,6 +320,7 @@ class MainScreenComponent extends React.Component {
 			height: rowHeight,
 			display: 'inline-block',
 			verticalAlign: 'top',
+			backgroundColor: theme.editorBackgroundColor
 		};
 
 		this.styles_.prompt = {

@@ -53,7 +53,7 @@ class Setting extends BaseModel {
 				options[Setting.TIME_FORMAT_2] = time.formatMsToLocal(now, Setting.TIME_FORMAT_2);
 				return options;
 			}},
-			'theme': { value: Setting.THEME_LIGHT, type: Setting.TYPE_INT, public: true, appTypes: ['mobile'], isEnum: true, label: () => _('Theme'), options: () => {
+			'theme': { value: Setting.THEME_LIGHT, type: Setting.TYPE_INT, public: true, appTypes: ['mobile', 'desktop'], isEnum: true, label: () => _('Theme'), options: () => {
 				let output = {};
 				output[Setting.THEME_LIGHT] = _('Light');
 				output[Setting.THEME_DARK] = _('Dark');
@@ -96,7 +96,7 @@ class Setting extends BaseModel {
 			'startMinimized': { value: false, type: Setting.TYPE_BOOL, public: true, appTypes: ['desktop'], label: () => _('Start application minimised in the tray icon') },
 
 			'collapsedFolderIds': { value: [], type: Setting.TYPE_ARRAY, public: false },
-			
+
 			'encryption.enabled': { value: false, type: Setting.TYPE_BOOL, public: false },
 			'encryption.activeMasterKeyId': { value: '', type: Setting.TYPE_STRING, public: false },
 			'encryption.passwordCache': { value: {}, type: Setting.TYPE_OBJECT, public: false },
@@ -154,7 +154,7 @@ class Setting extends BaseModel {
 
 			'net.customCertificates': { value: '', type: Setting.TYPE_STRING, show: (settings) => { return [SyncTargetRegistry.nameToId('nextcloud'), SyncTargetRegistry.nameToId('webdav')].indexOf(settings['sync.target']) >= 0 }, public: true, appTypes: ['desktop', 'cli'], label: () => _('Custom TLS certificates'), description: () => _('Comma-separated list of paths to directories to load the certificates from, or path to individual cert files. For example: /my/cert_dir, /other/custom.pem. Note that if you make changes to the TLS settings, you must save your changes before clicking on "Check synchronisation configuration".') },
 			'net.ignoreTlsErrors': { value: false, type: Setting.TYPE_BOOL, show: (settings) => { return [SyncTargetRegistry.nameToId('nextcloud'), SyncTargetRegistry.nameToId('webdav')].indexOf(settings['sync.target']) >= 0 }, public: true, appTypes: ['desktop', 'cli'], label: () => _('Ignore TLS certificate errors') },
-		
+
 			'api.token': { value: null, type: Setting.TYPE_STRING, public: false },
 		};
 

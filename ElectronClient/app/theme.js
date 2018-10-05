@@ -23,6 +23,11 @@ const globalStyle = {
 	buttonMinHeight: 30,
 	textAreaLineHeight: 17,
 
+	sideBarBackgroundColor: "#dddddd",
+  noteListBackgroundColor: "#dddddd",
+	editorBackgroundColor: "#dddddd",
+	headerBackgroundColor: "#dddddd",
+
 	//backgroundColor2: "#2B2634",
 	backgroundColor2: "#162B3D",
 	color2: "#ffffff",
@@ -110,14 +115,23 @@ function themeStyle(theme) {
 	if (!theme) throw new Error('Theme must be specified');
 	if (themeCache_[theme]) return themeCache_[theme];
 
+
+
 	let output = Object.assign({}, globalStyle);
 	if (theme == Setting.THEME_LIGHT) return output;
 
+	console.log("lets go with the dark one");
 	output.backgroundColor = '#1D2024';
 	output.color = '#dddddd';
 	output.colorFaded = '#777777';
 	output.dividerColor = '#555555';
 	output.selectedColor = '#333333';
+
+	output.sideBarBackgroundColor = "#19191a";
+	//output.noteListBackgroundColor = "#181818";
+  output.noteListBackgroundColor = "#121212";
+	output.editorBackgroundColor = "#0f0f0f";
+	output.headerBackgroundColor = "#555555";
 
 	output.raisedBackgroundColor = "#0F2051";
 	output.raisedColor = "#788BC3";
@@ -126,6 +140,7 @@ function themeStyle(theme) {
 	output.htmlColor = 'rgb(220,220,220)';
 	output.htmlBackgroundColor = 'rgb(29,32,36)';
 	output.htmlLinkColor = 'rgb(166,166,255)';
+
 
 	themeCache_[theme] = output;
 	return themeCache_[theme];
